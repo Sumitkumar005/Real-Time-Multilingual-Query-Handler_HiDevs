@@ -9,11 +9,36 @@ A sophisticated AI-powered translation system that translates customer queries f
 
 ## 🎥 Demo Video
 
-**Watch the complete demo of the Real-Time Multilingual Query Handler in action:**
+**Watch the Real-Time Multilingual Query Handler in action:**
 
-https://github.com/Sumitkumar005/Real-Time-Multilingual-Query-Handler_HiDevs/blob/main/demo.mp4
+<div align="center">
 
-*The demo showcases real-time translation capabilities, language detection, and the complete user interface with multiple language examples.*
+### 🎬 Interactive Demo
+
+[![Watch Demo Video](https://img.shields.io/badge/▶️%20PLAY%20DEMO-Click%20to%20Watch-red?style=for-the-badge&logo=youtube)](https://github.com/Sumitkumar005/Real-Time-Multilingual-Query-Handler_HiDevs/raw/main/demo.mp4)
+
+**📱 Mobile/Desktop Compatible | 🎯 Full Feature Demonstration | ⚡ Real-time Translation**
+
+</div>
+
+<details>
+<summary>📺 Alternative Video Access Options</summary>
+
+### 🔗 Direct Links:
+- **[🎥 Stream Video](https://github.com/Sumitkumar005/Real-Time-Multilingual-Query-Handler_HiDevs/raw/main/demo.mp4)** - Direct playback
+- **[📥 Download Video](https://github.com/Sumitkumar005/Real-Time-Multilingual-Query-Handler_HiDevs/raw/main/demo.mp4)** - Save locally
+- **[🌐 GitHub View](https://github.com/Sumitkumar005/Real-Time-Multilingual-Query-Handler_HiDevs/blob/main/demo.mp4)** - GitHub interface
+
+### 📋 Demo Highlights:
+- ✅ Real-time language detection with confidence scoring
+- ✅ Multi-language translation (Spanish, French, German, etc.)
+- ✅ Professional UI with visual feedback
+- ✅ Translation history and session statistics
+- ✅ Error handling and quality metrics
+
+</details>
+
+---
 
 ## 🌟 Features
 
