@@ -9,24 +9,40 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# Try to import streamlit for secrets (when deployed on Streamlit Cloud)
+try:
+    import streamlit as st
+    _streamlit_available = True
+except ImportError:
+    _streamlit_available = False
+
+def get_secret(key: str, default: Optional[str] = None) -> Optional[str]:
+    """Get secret from Streamlit secrets or environment variables"""
+    if _streamlit_available:
+        try:
+            return st.secrets.get(key, os.getenv(key, default))
+        except:
+            return os.getenv(key, default)
+    return os.getenv(key, default)
+
 class Config:
     """Application configuration class"""
     
     # API Keys
-    GROQ_API_KEY: Optional[str] = os.getenv("GROQ_API_KEY")
+    GROQ_API_KEY: Optional[str] = get_secret("GROQ_API_KEY")
     
     # Model Settings
     GROQ_MODEL = "llama-3.1-8b-instant"  # Confirmed working model
     EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
     
     # Application Settings
-    APP_TITLE = "Real-Time Multilingual Query Handler"
+    APP_TITLE = get_secret("APP_TITLE", "Real-Time Multilingual Query Handler")
     APP_DESCRIPTION = "AI-powered translation for global customer support"
     
     # Translation Settings
-    MAX_QUERY_LENGTH = 1000
-    TRANSLATION_TIMEOUT = 30
-    CACHE_TTL = 3600  # 1 hour
+    MAX_QUERY_LENGTH = int(get_secret("MAX_QUERY_LENGTH", "1000"))
+    TRANSLATION_TIMEOUT = int(get_secret("TRANSLATION_TIMEOUT", "30"))
+    CACHE_TTL = int(get_secret("CACHE_TTL", "3600"))  # 1 hour
     
     # Vector Database Settings
     CHUNK_SIZE = 500
@@ -38,14 +54,14 @@ class Config:
     DEFAULT_TARGET_LANGUAGE = "English"
     
     # Logging
-    LOG_LEVEL = "INFO"
+    LOG_LEVEL = get_secret("LOG_LEVEL", "INFO")
     LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     
     @classmethod
     def validate(cls):
         """Validate required configuration"""
         if not cls.GROQ_API_KEY:
-            raise ValueError("GROQ_API_KEY environment variable is required")
+            raise ValueError("GROQ_API_KEY is required. Please set it in Streamlit secrets or environment variables.")
         return True
 
 # Supported languages for translation

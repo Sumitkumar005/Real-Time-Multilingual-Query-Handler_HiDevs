@@ -65,7 +65,8 @@ logs/
 .coverage
 htmlcov/
 
-# Streamlit
+# Streamlit secrets - NEVER COMMIT!
+.streamlit/secrets.toml
 .streamlit/
 
 # Jupyter Notebook
